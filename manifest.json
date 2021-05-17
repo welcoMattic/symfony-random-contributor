@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+  "name": "Symfony random contributor",
+  "version": "1.0",
+  "description": "Alert you if the random contributor card is about you while you are browsing symfony.com",
+  "author": "Mathieu Santostefano",
+  "homepage_url": "https://blog.welcomattic.com",
+  "permissions": [
+    "*://*.symfony.com/*",
+    "storage"
+  ],
+  "icons": {
+    "48": "icons/symfony.svg",
+    "96": "icons/symfony.svg"
+  },
+  "browser_action": {
+    "default_icon": "icons/symfony.svg",
+    "default_title": "Symfony random contributor",
+    "default_popup": "browser_action/index.html",
+    "browser_style": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.symfony.com/*"],
+      "js": ["content_scripts/symfony/index.js"]
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "extension@symfony_random_contributor"
+    }
+  }
+}
